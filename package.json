@@ -14,12 +14,17 @@
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
-		"commands": [
-			{
+		"commands": [{
 				"command": "squid.toInkScreen",
 				"title": "To Ink Screen"
+		}],
+		"title": "Squid",
+		"properties": {
+			"squid.port": {
+				"type": "number",
+				"default" : 8888
 			}
-		]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run package",

@@ -1,17 +1,20 @@
 # 🦑 Squid 
 
-## Features
+Use the experimental browser of your e-ink device to write code
 
+## Commands
 
-## Requirements
+> To Ink Screen
 
 ## Extension Settings
 
-## Known Issues
+Port number
 
-## Release Notes
+## License
 
-### 1.0.0
+MIT
+
+### 0.0.1
 
 
 -----------------------------------------------------------------------------------------------------------

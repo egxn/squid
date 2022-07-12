@@ -38,11 +38,10 @@ const inkServer: InkServer = {
   status: 503,
   start: function () {
     this.status = 200;
-    this.server = http.createServer((req: any, res: any) => {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(this.content);
-      res.end();
+    this.server = http.createServer((req: http.IncomingMessage , res : http.ServerResponse) => {
+      res.setHeader("Content-Type", "text/html");
+      res.writeHead(200);
+      res.end(this.content);
     });
     this.server.listen(8888);
   },
@@ -52,5 +51,6 @@ const inkServer: InkServer = {
     }
   },
 };
+
 
 export default inkServer;
