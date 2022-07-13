@@ -7,14 +7,14 @@ const createHtmlContent = function (content: string) : string {
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="refresh" content="1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🦑 Squid</title>
     <style>
       body { margin: 4px; }
       pre { tab-width: 2; }
-      .property, .attr-name { font-weight: bold; }
-      .attr-value { font-style: italic; }
+      .property, .attr-name, .keyword { font-weight: bold; }
+      .attr-value, .function-variable , .function, .string , .number
+        { font-style: italic; }
     </style>
   </head>
   <body>

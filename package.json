@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:squid.toInkScreen"
+    "onCommand:squid.createInkServer"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "squid.toInkScreen",
-        "title": "To Ink Screen"
+        "command": "squid.createInkServer",
+        "title": "Create an ink server"
       }
     ],
     "title": "Squid",
