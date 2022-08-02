@@ -7,6 +7,7 @@ const createHtmlContent = function (content: string) : string {
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="0.5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🦑 Squid</title>
     <style>
