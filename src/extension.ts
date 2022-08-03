@@ -3,9 +3,17 @@ import inkServer, { InkServer } from './sever';
 import * as prism from 'prismjs';
 import supportedLanguages from './languages';
 
-let buttonBarItem: vscode.StatusBarItem;
+function getButtonBarItem(command: string) : vscode.StatusBarItem {
+  let buttonBarItem: vscode.StatusBarItem;
+  buttonBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+  buttonBarItem.command = command;
+  buttonBarItem.text = '[🦑]';
+  buttonBarItem.tooltip = 'Create an ink server';
 
-function saveText(inkServer: InkServer, document: vscode.TextDocument) {
+  return buttonBarItem;
+}
+
+function saveText(inkServer: InkServer, document: vscode.TextDocument) : void {
   const text = document.getText() || '';
   const language = document.languageId;
   const supportedLanguage = supportedLanguages?.[`${language}`];
@@ -22,23 +30,25 @@ function saveText(inkServer: InkServer, document: vscode.TextDocument) {
   }
 }
 
-export function activate(context: vscode.ExtensionContext) {
-  const createInkServer = 'squid.createInkServer';
-  let disposable = vscode.commands.registerCommand(createInkServer, () => {
-    if (vscode?.window?.activeTextEditor?.document) {
-      saveText(inkServer, vscode.window.activeTextEditor.document);
-    }
-    inkServer.start();
-    if (inkServer.status === 200) {
-      vscode.window.showInformationMessage('🦑 Swimming on http://localhost:8888');
-    }
-    vscode.workspace.onDidChangeTextDocument((e: vscode.TextDocumentChangeEvent) => saveText(inkServer, e.document));
-  });
+function createInkServer(inkServer : InkServer) : void {
+  if (vscode?.window?.activeTextEditor?.document) {
+    saveText(inkServer, vscode.window.activeTextEditor.document);
+  }
 
-  buttonBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-  buttonBarItem.command = createInkServer;
-  buttonBarItem.text = '[🦑]';
-  buttonBarItem.tooltip = 'Create an ink server';
+  inkServer.start();
+  if (inkServer.status === 200) {
+    vscode.window.showInformationMessage('🦑 on http://localhost:8888');
+  }
+
+
+  vscode.workspace.onDidChangeTextDocument((e: vscode.TextDocumentChangeEvent) => saveText(inkServer, e.document));
+  vscode.workspace.onDidOpenTextDocument((e: vscode.TextDocument) => saveText(inkServer, e));
+}
+
+export function activate(context: vscode.ExtensionContext) {
+  const createInkServerCommand = 'squid.createInkServer';
+  const buttonBarItem = getButtonBarItem(createInkServerCommand);
+  let disposable = vscode.commands.registerCommand(createInkServerCommand, () => createInkServer(inkServer));
 
   context.subscriptions.push(disposable);
   context.subscriptions.push(buttonBarItem);
