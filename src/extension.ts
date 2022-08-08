@@ -3,7 +3,7 @@ import inkServer, { InkServer } from './sever';
 import * as prism from 'prismjs';
 import supportedLanguages from './languages';
 
-function getButtonBarItem(command: string) : vscode.StatusBarItem {
+export function getButtonBarItem(command: string) : vscode.StatusBarItem {
   let buttonBarItem: vscode.StatusBarItem;
   buttonBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
   buttonBarItem.command = command;
@@ -13,7 +13,7 @@ function getButtonBarItem(command: string) : vscode.StatusBarItem {
   return buttonBarItem;
 }
 
-function saveText(inkServer: InkServer, document: vscode.TextDocument) : void {
+export function saveText(inkServer: InkServer, document: vscode.TextDocument) : void {
   const text = document.getText() || '';
   const language = document.languageId;
   const supportedLanguage = supportedLanguages?.[`${language}`];
@@ -30,7 +30,7 @@ function saveText(inkServer: InkServer, document: vscode.TextDocument) : void {
   }
 }
 
-function createInkServer(inkServer : InkServer) : void {
+export function createInkServer(inkServer : InkServer) : void {
   if (vscode?.window?.activeTextEditor?.document) {
     saveText(inkServer, vscode.window.activeTextEditor.document);
   }
