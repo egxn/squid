@@ -4,7 +4,7 @@
   "description": "Code using e-ink screen browser",
   "version": "0.1.0",
   "publisher": "egxn",
-  "icon": "https://github.com/egxn/squid/src/assets/icon_squid_256.png",
+  "icon": "https://user-images.githubusercontent.com/9216933/183815180-9f0bc3a6-75fc-4522-b96f-19d16ec25efe.png",
   "engines": {
     "vscode": "^1.67.0"
   },
