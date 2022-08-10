@@ -1,6 +1,5 @@
 import {getButtonBarItem} from './extension';
 
-
 test('Create a squid button bar item', () => {
   const button = getButtonBarItem('squid.createInkServer');
 

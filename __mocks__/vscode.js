@@ -6,6 +6,10 @@ const window = {
     show: jest.fn(),
     hide: jest.fn(),
   })),
+  TextDocument: {
+    getText: jest.fn(() => 'test'),
+    languageId: 'test'
+  },
 };
 
 const workspace = {
@@ -17,6 +21,7 @@ const StatusBarAlignment = {
   Left: 'left',
   Right: 'right',
 };
+
 
 const vscode = {
   window,
