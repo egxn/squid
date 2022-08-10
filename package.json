@@ -2,7 +2,7 @@
   "name": "squid",
   "displayName": "squid",
   "description": "Code using e-ink screen browser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "egxn",
   "icon": "https://github.com/egxn/squid/src/assets/icon_squid_256.png",
   "engines": {

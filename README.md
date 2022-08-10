@@ -8,13 +8,11 @@ Use the experimental browser of your e-ink device to write code
 
 ---
 
-## Commands
+## Usage
 
-> To Ink Screen
+> Create a Ink Server
 
-## Extension Settings
-
-Port number
+In your e ink device on the same network, open the browser using the ip address and port number.
 
 ## License
 

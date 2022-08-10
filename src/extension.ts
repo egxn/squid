@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import inkServer, { InkServer } from './sever';
 import * as prism from 'prismjs';
 import supportedLanguages from './languages';
+import getIP from './ip';
 
 export function getButtonBarItem(command: string) : vscode.StatusBarItem {
   let buttonBarItem: vscode.StatusBarItem;
@@ -37,7 +38,7 @@ export function createInkServer(inkServer : InkServer) : void {
 
   inkServer.start();
   if (inkServer.status === 200) {
-    vscode.window.showInformationMessage('🦑 on http://localhost:8888');
+    vscode.window.showInformationMessage(`🦑 on http://${getIP()}:8888`);
   }
 
 
